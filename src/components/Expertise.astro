@@ -1,0 +1,54 @@
+---
+const services = [
+	{
+		title: 'Ortodontia',
+		text: 'A terapia miofuncional orofacial contribui para a estabilidade dos resultados do tratamento ortodôntico.',
+	},
+	{
+		title: 'Distúrbios respiratórios do sono',
+		text: 'Fonoterapia como parte do tratamento interdisciplinar do ronco e da apneia obstrutiva do sono, conforme indicação clínica.',
+	},
+	{
+		title: 'Cirurgia ortognática',
+		text: 'Avaliação miofuncional pré-operatória e acompanhamento pós-operatório, com atenção à recuperação da mobilidade facial e mandibular e à reabilitação da respiração, mastigação, deglutição e fala.',
+	},
+	{
+		title: 'Disfunção temporomandibular (DTM)',
+		text: 'Estratégias terapêuticas para o manejo da dor orofacial, melhora da mobilidade mandibular e adequação das funções de mastigação, deglutição e fala.',
+	},
+];
+
+const symptoms = [
+	'dificuldade ou desconforto para mastigar',
+	'dor nos músculos da face ou na articulação temporomandibular- ATM',
+	'respiração predominantemente pela boca',
+	'alterações na deglutição',
+	'alterações na fala',
+	'preparação e recuperação de cirurgia ortognática',
+	'recidiva após o tratamento ortodôntico',
+	'ronco e outros distúrbios respiratórios do sono',
+];
+---
+
+<section id="atuacao" class="expertise section-shell" aria-labelledby="expertise-title">
+	<div class="paper-card">
+		<header class="section-heading">
+			<h2 id="expertise-title">Áreas de atuação</h2>
+			<p>Terapia miofuncional orofacial em casos de:</p>
+		</header>
+		<div class="services-grid">
+			{services.map((service) => (
+				<article>
+					<h3>{service.title}</h3>
+					<p>{service.text}</p>
+				</article>
+			))}
+		</div>
+		<div class="care-callout">
+			<h2>Quando procurar atendimento</h2>
+			<ul>
+				{symptoms.map((symptom) => <li>{symptom}</li>)}
+			</ul>
+		</div>
+	</div>
+</section>

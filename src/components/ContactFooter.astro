@@ -1,0 +1,36 @@
+---
+const whatsappNumber = '5551992021811';
+const whatsappMessage = encodeURIComponent('Olá, gostaria de obter mais informações e agendar uma avaliação fonoaudiológica.');
+const address = 'Av. Goethe, 71/604, Porto Alegre, RS';
+const instagramUrl = '';
+
+const contacts = [
+	{ label: 'Instagram — endereço a configurar', icon: '/images/simbolo-%20instagram.webp', href: instagramUrl },
+	{ label: 'Conversar pelo WhatsApp', icon: '/images/simbolo-whats.webp', href: `https://wa.me/${whatsappNumber}?text=${whatsappMessage}` },
+	{ label: 'Ver localização no Google Maps', icon: '/images/simbolo-%20localizacao.webp', href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}` },
+];
+---
+
+<footer id="contato" class="contact section-shell">
+	<div class="contact-panel">
+		<p>Entre em contato para obter mais informações ou agendar uma avaliação fonoaudiológica.</p>
+		<div class="contact-row">
+			<address>
+				<a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noreferrer">51 99202.1811</a>
+				<span aria-hidden="true">•</span>
+				<a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`} target="_blank" rel="noreferrer">Av. Goethe, 71/604</a>
+			</address>
+			<nav class="social-links" aria-label="Links de contato">
+				{contacts.map((contact) => contact.href ? (
+					<a href={contact.href} target="_blank" rel="noreferrer" aria-label={contact.label}>
+						<img src={contact.icon} alt="" width="160" height="160" loading="lazy" />
+					</a>
+				) : (
+					<span aria-label={contact.label} aria-disabled="true">
+						<img src={contact.icon} alt="" width="160" height="160" loading="lazy" />
+					</span>
+				))}
+			</nav>
+		</div>
+	</div>
+</footer>

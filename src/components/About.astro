@@ -1,0 +1,35 @@
+---
+const experience = [
+	'Fonoaudióloga da Universidade Federal do Rio Grande do Sul — UFRGS e preceptora de estágios do curso de Fonoaudiologia desde 2009.',
+	'Atuação interdisciplinar junto às clínicas da Faculdade de Odontologia da UFRGS.',
+	'Atendimento clínico em consultório, na área de Motricidade Orofacial, com foco em adolescentes e adultos.',
+	'Atendimento clínico em consultório na área de Motricidade Orofacial desde 2004.',
+];
+
+const science = [
+	'Membro da Associação Brasileira de Motricidade Orofacial.',
+	'Membro da Sociedade Brasileira de Fonoaudiologia.',
+	'Coordenadora do Comitê de Tecnologia e Inovação do Departamento de Motricidade Orofacial da Sociedade Brasileira de Fonoaudiologia - gestão 2024/2025.',
+	'Autora de capítulos de livros e artigos científicos na área de Motricidade Orofacial.',
+];
+---
+
+<section id="experiencia" class="about section-shell" aria-labelledby="experience-title">
+	<div class="about-grid">
+		<img
+			class="portrait-about"
+			src="/images/barbara-aleixo-about.webp"
+			alt="Retrato profissional de Bárbara Aleixo"
+			width="1265"
+			height="1899"
+			loading="lazy"
+			decoding="async"
+		/>
+		<div class="about-copy">
+			<h2 id="experience-title">Experiência profissional</h2>
+			{experience.map((item) => <p>{item}</p>)}
+			<h2>Atuação científica e institucional</h2>
+			{science.map((item) => <p>{item}</p>)}
+		</div>
+	</div>
+</section>

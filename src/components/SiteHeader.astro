@@ -1,0 +1,39 @@
+---
+const navigation = [
+	{ label: 'Início', href: '#inicio' },
+	{ label: 'Áreas de atuação', href: '#atuacao' },
+	{ label: 'Experiência', href: '#experiencia' },
+	{ label: 'Contato', href: '#contato' },
+];
+---
+
+<header class="site-header">
+	<a class="brand-mark" href="#inicio" aria-label="Bárbara Aleixo — início"></a>
+	<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+		<span class="sr-only">Abrir menu</span>
+		<span></span><span></span><span></span>
+	</button>
+	<nav id="site-menu" class="site-menu" aria-label="Navegação principal">
+		{navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+	</nav>
+</header> 
+
+<script>
+	const header = document.querySelector<HTMLElement>('.site-header');
+	const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+	const menu = document.querySelector<HTMLElement>('#site-menu');
+	const label = toggle?.querySelector<HTMLElement>('.sr-only');
+
+	const setMenu = (open: boolean) => {
+		header?.classList.toggle('menu-open', open);
+		toggle?.setAttribute('aria-expanded', String(open));
+		if (label) label.textContent = open ? 'Fechar menu' : 'Abrir menu';
+	};
+
+	toggle?.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+	menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+	document.addEventListener('keydown', (event) => event.key === 'Escape' && setMenu(false));
+	document.addEventListener('click', (event) => {
+		if (header && !header.contains(event.target as Node)) setMenu(false);
+	});
+</script>
